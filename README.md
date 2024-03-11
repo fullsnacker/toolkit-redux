@@ -6,7 +6,9 @@ Este repositorio contiene una serie de ejercicios con React y Redux Toolkit.
 
 Clona este repositorio en tu máquina local:
 
+```sh
 git clone https://github.com/fullsnacker/toolkit-redux.git
+```
 
 ## Configuración del Proyecto
 
