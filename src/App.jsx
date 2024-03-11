@@ -1,42 +1,31 @@
 import { useDispatch, useSelector } from 'react-redux';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
 
-import {
-	decrement,
-	increment,
-	incrementByAmount
-} from './store/slices/counter';
+import logo from '../public/logo.svg';
+import './App.css';
+import { increment, decrement, incrementBy } from './store/slices/counter';
 
 function App() {
 	const { counter } = useSelector((state) => state.counter);
-
 	const dispatch = useDispatch();
 
 	return (
-		<>
-			<div>
-				<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://react.dev" target="_blank" rel="noreferrer">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
-			</div>
-			<h1>count is {counter}</h1>
-			<div className="card">
-				<button onClick={() => dispatch(increment())}>Increment</button>
-			</div>
-			<div className="card">
-				<button onClick={() => dispatch(decrement())}>Decrement</button>
-			</div>
-			<div className="card">
-				<button onClick={() => dispatch(incrementByAmount(2))}>
-					Increment by 2
-				</button>
-			</div>
-		</>
+		<div className="App">
+			<header className="App-header">
+				<img src={logo} className="App-logo" alt="logo" />
+				<p>count is: {counter}</p>
+				<p>
+					<button type="button" onClick={() => dispatch(increment())}>
+						Increment
+					</button>
+					<button type="button" onClick={() => dispatch(decrement())}>
+						Decrement
+					</button>
+					<button type="button" onClick={() => dispatch(incrementBy(2))}>
+						Increment by 2
+					</button>
+				</p>
+			</header>
+		</div>
 	);
 }
 

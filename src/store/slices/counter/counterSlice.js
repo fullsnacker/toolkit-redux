@@ -1,12 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-	counter: 10
-};
-
 export const counterSlice = createSlice({
 	name: 'counter',
-	initialState,
+	initialState: {
+		counter: 10,
+		times: 0
+	},
 	reducers: {
 		increment: (state) => {
 			// Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -15,14 +14,15 @@ export const counterSlice = createSlice({
 			// immutable state based off those changes
 			state.counter += 1;
 		},
+		incrementBy: (state, action) => {
+			console.log(action);
+			state.counter += action.payload;
+		},
 		decrement: (state) => {
 			state.counter -= 1;
-		},
-		incrementByAmount: (state, action) => {
-			state.counter += action.payload;
 		}
 	}
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { increment, decrement, incrementBy } = counterSlice.actions;
